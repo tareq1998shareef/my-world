@@ -1,0 +1,603 @@
+:root {
+    --main-color: #2196f3;
+    --hover-background-color: #f9f9f9;
+    --second-color: #172ee0;
+    --main--padding-top: 4rem;
+    --main--padding-bottom: 4rem;
+    --transition-duration: .3s
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fbfbfb;
+}
+html {
+    scroll-behavior: smooth;
+}
+ul,nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    transition: var(--transition-duration);
+    color: var(--main-color);
+    font-weight: bold;
+}
+.container {
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.main-title {
+    width: fit-content;
+    margin: 0 auto 5rem;
+    border: 1px solid var(--main-color);
+    padding: 10px 20px;
+    color: black;
+    text-transform: uppercase;
+    font-size: 2rem;
+    position: relative;
+}
+.main-title::before {
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 0;
+    transition: var(--transition-duration);
+    z-index: -1;
+}
+.main-title:hover::before {
+    height: 100%;
+}
+.main-title:hover {
+    color: white;
+    border-color: transparent;
+}
+/* Start Header */
+header {
+    background-color: white;
+    box-shadow: 0 0 10px #ddd;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.75rem;
+    flex-wrap: wrap;
+    position: relative;
+}
+header .container > a {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px #ddd;
+}
+nav {
+    display: flex;
+}
+nav > li > a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 0 30px;
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+}
+nav > li > a::before {
+    content: "";
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--second-color);
+    transition: var(--transition-duration);
+}
+nav >li > a:hover {
+    background-color: var(--hover-background-color);
+    color: var(--second-color);
+}
+nav > li > a:hover::before {
+    left: 0;
+}
+header nav .nav-menu {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    z-index: -10;
+    padding: 10px 20px;
+    gap: 20px;
+    top: calc(100% + 1rem);
+    border-bottom: 3px solid var(--main-color);
+    transition: var(--transition-duration);
+    opacity: 0;
+}
+header nav >li:last-of-type:hover .nav-menu{
+    opacity: 1;
+    z-index: 10;
+    top: 100%;
+}
+header nav .nav-menu .images img {
+    max-width: 100%;
+}
+header nav .nav-menu .links {
+    min-width: 300px;
+    flex: 1;
+}
+header nav .nav-menu .links li {
+    position: relative;
+}
+header nav .nav-menu .links li::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    left: 0;
+    top: 0;
+    background-color: var(--hover-background-color);
+    height: 100%;
+    z-index: -1;
+    transition: var(--transition-duration);
+}
+header nav .nav-menu .links li:hover::before {
+    width: 100%;
+}
+header nav .nav-menu .links li a {
+    display: block;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+header nav .nav-menu .links li:not(:last-child) a {
+    border-bottom: 1px solid #e9e6e6;
+}
+header nav .nav-menu .links li a i {
+    margin-right: 1rem;
+}
+@media (max-width: 991px) {
+    header nav .nav-menu .images {
+        display: none;
+    }
+    header nav .nav-menu {
+        flex-direction: column;
+        gap: 0;
+    }
+    header nav .nav-menu .links:first-of-type li:last-child {
+        border-bottom: 1px solid #e9e6e6;
+    }
+}
+@media (max-width: 767px) {
+     nav li a {
+        font-size: 1rem;
+        padding: 0 10px;
+        height: 2.5rem;
+    }
+    header .container > a {
+        width: 100%;
+        text-align: center;
+        box-shadow: none;
+        padding: 2px 0;
+    }
+    header .container {
+        height: 70px;
+    }
+    nav {
+        margin: auto;
+    }
+}
+
+/* End Header */
+/* Start Landing */
+.landing {
+    position: relative;
+    overflow: hidden;
+}
+.landing::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
+    opacity: 0.3;
+    z-index: -1;
+    transform: skewy(-90deg);
+    transform-origin: left;
+    transition: var(--transition-duration);
+}
+.landing:hover:before {
+    transform: skewy(0deg);
+}
+.landing .container {
+    height: calc(100vh - 3.75rem);
+    display: flex;
+    align-items: center;
+}
+.landing .text {
+    flex: 1;
+}
+.landing .text h1 {
+    font-weight: bold;
+    letter-spacing: -5px;
+    font-size: 3.5rem;
+}
+.landing .text p {
+    margin-top: -2rem;
+    font-size: 1.2rem;
+    color: #77777e;
+    line-height: 1.6;
+}
+.landing .images img {
+    position: relative;
+    width: 600px;
+    animation: up-and-down 5s linear infinite;
+}
+@media (max-width: 767px) {
+    .landing {
+        height: calc(100vh - 70px);
+    }
+}
+@media (max-width: 991px) {
+    .landing .text {
+        text-align: center;
+    }
+    .landing .text p {
+        margin: 0;
+    }
+    .landing .images img {
+        display: none;
+    }
+    .landing .text h1 {
+        margin-bottom: 10px;
+    }
+}
+/* End Landing */
+/* start section (Books) */
+.books {
+    padding-top: var(--main--padding-top);
+    padding-bottom: var(--main--padding-bottom);
+}
+.books .container section.parts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(150px , 1fr));
+    gap: 20px;
+    width: 100%;
+    padding: 1rem 2rem;
+    box-shadow: 0 0 10px #ddd;
+    background-color: white;
+    margin-bottom: 1rem;
+}
+.books .container section.parts div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition-duration);
+}
+.books .container section.parts div.active span {
+    color: var(--main-color);
+}
+.books .container section.parts div::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1rem;
+    width: 0;
+    height: 2px;
+    background-color: var(--second-color);
+    transition: var(--transition-duration);
+}
+.books .container section.parts div.active::before {
+    width: 100%;
+}
+.books .container section.parts div:hover::before {
+    width: 100%;
+}
+.books .container section.parts  div img {
+    width: 5rem;
+    transition: var(--transition-duration);
+}
+.books .container section.parts div span {
+    color: black;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: var(--transition-duration);
+}
+.books .container section.parts div:hover span {
+    color: var(--main-color);
+}
+@media (max-width: 767px) {
+    .books .container section.parts {
+        padding: 1rem .3rem;
+    }
+    .books .container section.parts  div img {
+        width: 3rem;
+    }
+    .books .container section.parts div span {
+        font-size: .8rem;
+    }
+}
+.books main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(250px , 1fr));
+    gap: 2rem;    
+}
+.books main .book {
+    display: none;
+    box-shadow: 0 0 10px #ddd;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+}
+.books main .book:hover {
+    box-shadow: 0 0 10px #819797;
+}
+.books main .book .imgs {
+    width: 100%;
+    flex: 1;
+}
+.books main .book .imgs img {
+    width: 100%;
+}
+.books main .book .text {
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+    background-color: white;
+    padding: 1rem;
+    width: 100%;
+    height: 35%;
+    transition: var(--transition-duration);
+}
+.books main .book:hover .text {
+    right: 0;
+}
+.books main .book .text h3 {
+    margin: 0 0 .8rem;
+}
+.books main .book .text span {
+    display: block;
+    font-size: 14px;
+    color: #000000ab;
+}
+.books main .book .text a {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 3rem;
+    border: 1px solid var(--main-color);
+    width: fit-content;
+    margin: 6px auto 0;
+    font-size: 2rem;
+}
+.books main .book .text a:hover {
+    color: var(--second-color);
+    background-color: var(--hover-background-color);
+}
+/* End Books */
+/* Start games */
+section.games {
+    padding-top: var(--main--padding-top);
+    padding-bottom: var(--main--padding-bottom);
+    overflow-x: hidden;
+}
+section.games .container {
+    box-shadow: 0 0 10px #ddd;
+    position: relative;
+}
+
+section.games .game {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 3rem;
+    margin: 0 2rem;
+    height: 331px;
+    padding: 10px 20px;
+}
+section.games .game .imgs {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+section.games .game .imgs img {
+    width: 100%;
+}
+section.games .game .text {
+    flex: 1;
+}
+section.games .game .text h3 {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+section.games .game .text p {
+    color: #000000ab;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1.1rem
+}
+@media (max-width:767px) {
+    section.games .game {
+        flex-direction: column-reverse;
+        gap: 0;
+        height: auto;
+    }
+    section.games .game .imgs {
+        width: 100%;
+    }
+    section.games .game .text h3 {
+        font-size: 1.5rem;
+    }
+    section.games .game .text p {
+        display: none;
+    }
+}
+/* End games */
+/* Start moves */
+section.moves {
+    padding-top: var(--main--padding-top);
+    padding-bottom: var(--main--padding-bottom);
+}
+section.moves .container {
+    display: flex;
+    background-color: #f1f1f1
+}
+section.moves .container aside {
+    width: 30%;
+}
+@media (max-width: 991px) {
+    section.moves .container {
+        flex-direction: column;
+    }
+    section.moves .container aside {
+        width: 100%;
+    }
+}
+section.moves .container aside p {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+section.moves .container aside ul {
+    margin: 8px 0;
+}
+section.moves .container aside ul li {
+    background-color: white;
+    padding: 20px;
+    font-size: .9rem;
+
+    cursor: pointer;
+}
+section.moves .container aside ul li:hover,
+section.moves .container aside ul li.active {
+    background-color: var(--hover-background-color);
+    color: var(--main-color);
+}
+section.moves .container aside ul li:not(:last-child) {
+    border-bottom: 3px solid #f1f1f1
+}
+section.moves .container main .preview {
+    padding: 2rem .8rem 0 1.3rem;
+}
+@media (max-width: 991px) {
+    section.moves .container main .preview {
+        padding: 0;
+    }
+}
+section.moves .container main .preview img {
+    width: 100%;
+    padding-bottom: 1rem;}
+/* End moves */
+/* Start Tourist places */
+section.tourist-places {
+    padding-top: var(--main--padding-top);
+    padding-bottom: var(--main--padding-bottom);
+}
+section.tourist-places .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(250px , 1fr));
+    gap: 2rem;
+    overflow: hidden;
+}
+section.tourist-places .container .box {
+    position: relative;
+    perspective: 1000px;
+    width: 200px;
+    height: 300px;
+    cursor: pointer;
+}
+section.tourist-places .container .box .image-container,
+section.tourist-places .container .box .text-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+section.tourist-places .container .box .image-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.text-container {
+    transform: rotateY(180deg);
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 1s;
+}
+.box.flipped .text-container {
+    transform: rotateY(0deg);
+}
+section.tourist-places .container .box .text h3 {
+    font-size: 2rem;
+    border-bottom: 1px solid var(--main-color);
+    width: fit-content;
+    margin: auto;
+    padding: 2rem 0;
+}
+section.tourist-places .container .box .text p {
+    font-size: 1.2rem;
+    color: #77777e;
+}
+/* End Tourist places */
+/* Start footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+footer ul li {
+    cursor: pointer;
+}
+footer ul li i {
+    margin: 5px;
+}
+/* End footer */
+
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+
+
+
+@keyframes up-and-down {
+    0%,100% {
+        top: 0;
+    }
+    50% {
+        top: -50px;
+    }
+}
