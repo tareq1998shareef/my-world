@@ -519,6 +519,7 @@ section.tourist-places .container .box {
     perspective: 1000px;
     width: 200px;
     height: 300px;
+    margin: 0 auto;
     cursor: pointer;
 }
 section.tourist-places .container .box .image-container,
