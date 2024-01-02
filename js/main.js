@@ -61,8 +61,6 @@ function filterBooks(category) {
 
     // إظهار الكتب المناسبة بناءً على الفئة المحددة
     let filteredBooks = document.getElementsByClassName(category);
-    console.log(category);
-    console.log(filteredBooks);
     for (let i = 0; i < filteredBooks.length; i++) {
       filteredBooks[i].style.display = "block";
     }
